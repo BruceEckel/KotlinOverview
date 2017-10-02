@@ -3,6 +3,12 @@ author: Bruce Eckel
 title: Resisting Kotlin
 date: October 1, 2017
 ---
+
+## From Upcoming _Atomic Kotlin_
+*
+
+---
+
 ### Ceremony makes you feel productive
 * Everything in a class, a file for every class
 * Plain functions -- who needs them?
@@ -45,3 +51,87 @@ public class Foo {
 
 ### Ranges
 {{Summary1/IntRange.kt}}
+
+---
+
+### Named and Default Arguments
+
+{{NamedAndDefaultArgs/NamedAndDefaultArgs.kt}}
+
+---
+
+### Lists are First-Class
+
+{{Summary2/ListCollection.kt}}
+
+---
+
+### Classes
+
+{{Summary2/ClassBodies.kt}}
+
+---
+
+### Data Classes
+
+{{DataClasses/Simple.kt}}
+
+---
+
+### Prefer Extension Functions to Inheritance
+
+{{Extensions/BookExtensions.kt}}
+
+---
+
+### Pattern Matching
+
+{{WhenExpressions/WhenExpressions.kt}}
+
+---
+
+### Local Functions
+
+{{LocalFunctions/LocalExtensions.kt}}
+
+---
+
+### Null Safety
+
+
+---
+
+### Lambdas (1)
+
+{{Lambdas/LambdaTypeInference.kt}}
+
+---
+
+### Lambdas (2)
+
+{{Lambdas/DisplayListWithLambda.kt}}
+
+---
+
+### Lambdas (3)
+
+{{Lambdas/TwoArgLambda.kt}}
+
+---
+
+### Functional Operations
+
+{{ListOperations/DisplayListMap.kt}}
+
+---
+
+### Operator Overloading
+
+{{Operators/Num.kt}}
+
+---
+
+### Many Other Powerful Features
+* Easy two-way Java interoperability
+* Coroutines (Kotlin 1.1)
+* (go through book looking for features)
