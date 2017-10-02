@@ -70,30 +70,115 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <p class="date">October 1, 2017</p>
 </section>
 
-<section id="foo" class="slide level2">
-<h2>Foo</h2>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Variables/Vars.kt</span>
-<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
-  <span class="kw">var</span> <span class="va">whole</span> = <span class="dv">11</span>          <span class="co">// [1]</span>
-  <span class="kw">var</span> <span class="va">fractional</span> = <span class="fl">1.4</span>    <span class="co">// [2]</span>
-  <span class="kw">var</span> <span class="va">words</span> = <span class="st">&quot;A value&quot;</span>   <span class="co">// [3]</span>
+<section id="ceremony-makes-you-feel-productive" class="slide level3">
+<h3>Ceremony makes you feel productive</h3>
+<ul>
+<li>Everything in a class, a file for every class</li>
+<li>Plain functions -- who needs them?</li>
+<li><p>It's just not the same without</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Foo {
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {
+<span class="co">// ...</span>
+  }
+}</code></pre></div></li>
+<li><p>How can I know where the end is without semicolons?</p></li>
+</ul>
+</section>
+<section id="top-level-functions" class="slide level3">
+<h3>Top-Level Functions</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/BasicFunctions.kt</span>
 
-  println(whole)
-  println(fractional)
-  println(words)
+<span class="kw">fun</span> <span class="fu">cube</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {
+  <span class="kw">return</span> x * x * x
+}
+
+<span class="kw">fun</span> <span class="fu">bang</span>(<span class="va">s</span>: <span class="dt">String</span>) = s + <span class="st">&quot;!&quot;</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  println(cube(<span class="dv">3</span>))
+  println(bang(<span class="st">&quot;pop&quot;</span>))
 }
 <span class="co">/* Output:</span>
-<span class="co">11</span>
-<span class="co">1.4</span>
-<span class="co">A value</span>
+<span class="co">27</span>
+<span class="co">pop!</span>
 <span class="co">*/</span></code></pre></div>
 </section>
-<section id="bar" class="slide level2">
-<h2>Bar</h2>
-<ul>
-<li>test</li>
-<li>test</li>
-</ul>
+<section id="string-templates" class="slide level3">
+<h3>String templates</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/StrTemplates.kt</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="kw">val</span> <span class="va">answer</span> = <span class="dv">42</span>
+  println(<span class="st">&quot;Found $answer!&quot;</span>)                  <span class="co">// [1]</span>
+  <span class="kw">val</span> <span class="va">condition</span> = <span class="kw">true</span>
+  println(<span class="st">&quot;${if (condition) &#39;a&#39; else &#39;b&#39;}&quot;</span>)  <span class="co">// [2]</span>
+  println(<span class="st">&quot;printing a $1&quot;</span>)                   <span class="co">// [3]</span>
+}
+<span class="co">/* Output:</span>
+<span class="co">Found 42!</span>
+<span class="co">a</span>
+<span class="co">printing a $1</span>
+<span class="co">*/</span></code></pre></div>
+</section>
+<section id="triple-quotes" class="slide level3">
+<h3>Triple Quotes</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/ThreeQuotes.kt</span>
+
+<span class="kw">fun</span> <span class="fu">json</span>(<span class="va">q</span>: <span class="dt">String</span>, <span class="va">a</span>: <span class="dt">Int</span>) = <span class="st">&quot;&quot;&quot;{</span>
+<span class="st">    &quot;question&quot; : &quot;$q&quot;,</span>
+<span class="st">    &quot;answer&quot; : $a</span>
+<span class="st">}&quot;&quot;&quot;</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  println(json(<span class="st">&quot;The Ultimate&quot;</span>, <span class="dv">42</span>))
+}
+<span class="co">/* Output:</span>
+<span class="co">{</span>
+<span class="co">    &quot;question&quot; : &quot;The Ultimate&quot;,</span>
+<span class="co">    &quot;answer&quot; : 42</span>
+<span class="co">}</span>
+<span class="co">*/</span></code></pre></div>
+</section>
+<section id="no-primitives" class="slide level3">
+<h3>No Primitives!</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/NumberTypes.kt</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="kw">val</span> <span class="va">n</span> = <span class="dv">1000</span>    <span class="co">// Int</span>
+  <span class="kw">val</span> <span class="va">l</span> = 1000L   <span class="co">// Long</span>
+  <span class="kw">val</span> <span class="va">d</span> = <span class="fl">1000.0</span>  <span class="co">// Double</span>
+  println(<span class="st">&quot;$n $l $d&quot;</span>)
+}
+<span class="co">/* Output:</span>
+<span class="co">1000 1000 1000.0</span>
+<span class="co">*/</span></code></pre></div>
+</section>
+<section id="iteration" class="slide level3">
+<h3>Iteration</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/IterateThroughString.kt</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="cf">for</span>(c <span class="kw">in</span> <span class="st">&quot;Kotlin&quot;</span>) {
+    print(<span class="st">&quot;$c &quot;</span>)
+    <span class="co">// c += 1 // error:</span>
+    <span class="co">// val cannot be reassigned</span>
+  }
+}
+<span class="co">/* Output:</span>
+<span class="co">K o t l i n</span>
+<span class="co">*/</span></code></pre></div>
+</section>
+<section id="ranges" class="slide level3">
+<h3>Ranges</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/IntRange.kt</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="cf">for</span>(i <span class="kw">in</span> <span class="dv">1</span>..<span class="dv">10</span>)
+    print(<span class="st">&quot;$i &quot;</span>)
+}
+<span class="co">/* Output:</span>
+<span class="co">1 2 3 4 5 6 7 8 9 10</span>
+<span class="co">*/</span></code></pre></div>
 </section>
     </div>
   </div>

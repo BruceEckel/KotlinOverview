@@ -3,25 +3,45 @@ author: Bruce Eckel
 title: Resisting Kotlin
 date: October 1, 2017
 ---
-## Foo
-```kotlin
-// Variables/Vars.kt
-fun main(args: Array<String>) {
-  var whole = 11          // [1]
-  var fractional = 1.4    // [2]
-  var words = "A value"   // [3]
-
-  println(whole)
-  println(fractional)
-  println(words)
+### Ceremony makes you feel productive
+* Everything in a class, a file for every class
+* Plain functions -- who needs them?
+* It's just not the same without
+```java
+public class Foo {
+  public static void main(String[] args) {
+    // ...
+  }
 }
-/* Output:
-11
-1.4
-A value
-*/
 ```
+* How can I know where the end is without semicolons?
+
 ---
-## Bar
-* test
-* test
+
+### Top-Level Functions
+{{Summary1/BasicFunctions.kt}}
+
+---
+
+### String templates
+{{Summary1/StrTemplates.kt}}
+
+---
+
+### Triple Quotes
+{{Summary1/ThreeQuotes.kt}}
+
+---
+
+### No Primitives!
+{{Summary1/NumberTypes.kt}}
+
+---
+
+### Iteration
+{{Summary1/IterateThroughString.kt}}
+
+---
+
+### Ranges
+{{Summary1/IntRange.kt}}
