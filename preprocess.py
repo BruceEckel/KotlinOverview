@@ -4,6 +4,7 @@ import io
 example_source = Path.cwd().parent / "AtomicKotlinExamples" / "Examples"
 
 processed = io.StringIO()
+
 for line in Path("ResistingKotlin.md").read_text().splitlines():
     if line.strip().startswith("{{"):
         print("```kotlin", file=processed)
@@ -12,6 +13,5 @@ for line in Path("ResistingKotlin.md").read_text().splitlines():
         print("```", file=processed)
     else:
         print(line, file=processed)
-
 
 Path("ResistingKotlin-processed.md").write_text(processed.getvalue())
