@@ -1,10 +1,7 @@
-# Resisting Kotlin
+# An Overview of Kotlin for Java Programmers
 A presentation about moving from Java to Kotlin for http://vjug24.com
 
 ----
 ## Abstract
 
-An introduction to the Kotlin language that addresses the reasons that some
-people (not you, who are open-minded and always want to use the best tools)
-will use to resist leaving the comfortable haven of Java to explore the new
-and different. Points will be made through examples.
+This presentation covers highlights and differences in the Kotlin language as compared to Java, emphasizing some of the points that might compel you to consider moving to Kotlin. Points will be made through examples taken from the upcoming *Atomic Kotlin* book.
