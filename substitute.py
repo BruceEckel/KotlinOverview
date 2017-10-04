@@ -5,7 +5,7 @@ example_source = Path.cwd().parent / "AtomicKotlinExamples" / "Examples"
 
 processed = io.StringIO()
 
-for line in Path("ResistingKotlin.md").read_text().splitlines():
+for line in Path("KotlinOverviewRaw.md").read_text().splitlines():
     if line.strip().startswith("{{"):
         print("```kotlin", file=processed)
         code = example_source / line[line.find("{{") + 2 : line.find("}}")]
@@ -14,4 +14,4 @@ for line in Path("ResistingKotlin.md").read_text().splitlines():
     else:
         print(line, file=processed)
 
-Path("ResistingKotlin-processed.md").write_text(processed.getvalue())
+Path("KotlinOverview.md").write_text(processed.getvalue())

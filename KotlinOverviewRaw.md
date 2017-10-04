@@ -1,7 +1,6 @@
 ---
 author: Bruce Eckel
-title: Resisting Kotlin
-date: October 1, 2017
+title: Kotlin Overview for Java Programmers
 ---
 
 ## From Upcoming _Atomic Kotlin_
@@ -168,7 +167,7 @@ open class Animal
 class Cat: Animal()
 
 fun main(args: Array<String>) {
-  val cats = listOf(Cat(), Cat())
+  val cats: List<Cat> = listOf(Cat(), Cat())
   val animals: List<Animal> = cats
 }
 ```

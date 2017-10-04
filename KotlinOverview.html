@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Bruce Eckel">
-  <title>Resisting Kotlin</title>
+  <title>Kotlin Overview for Java Programmers</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -65,9 +65,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <div class="slides">
 
 <section>
-  <h1 class="title">Resisting Kotlin</h1>
+  <h1 class="title">Kotlin Overview for Java Programmers</h1>
   <p class="author">Bruce Eckel</p>
-  <p class="date">October 1, 2017</p>
 </section>
 
 <section id="from-upcoming-atomic-kotlin" class="slide level2">
@@ -94,9 +93,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="top-level-functions">Top-Level Functions</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/BasicFunctions.kt</span>
-
-<span class="kw">fun</span> <span class="fu">cube</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">cube</span>(<span class="va">x</span>: <span class="dt">Int</span>): <span class="dt">Int</span> {
   <span class="kw">return</span> x * x * x
 }
 
@@ -114,9 +111,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="string-templates">String templates</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/StrTemplates.kt</span>
-
-<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">val</span> <span class="va">answer</span> = <span class="dv">42</span>
   println(<span class="st">&quot;Found $answer!&quot;</span>)                  <span class="co">// [1]</span>
   <span class="kw">val</span> <span class="va">condition</span> = <span class="kw">true</span>
@@ -132,9 +127,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="triple-quotes">Triple Quotes</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/ThreeQuotes.kt</span>
-
-<span class="kw">fun</span> <span class="fu">json</span>(<span class="va">q</span>: <span class="dt">String</span>, <span class="va">a</span>: <span class="dt">Int</span>) = <span class="st">&quot;&quot;&quot;{</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">json</span>(<span class="va">q</span>: <span class="dt">String</span>, <span class="va">a</span>: <span class="dt">Int</span>) = <span class="st">&quot;&quot;&quot;{</span>
 <span class="st">    &quot;question&quot; : &quot;$q&quot;,</span>
 <span class="st">    &quot;answer&quot; : $a</span>
 <span class="st">}&quot;&quot;&quot;</span>
@@ -152,9 +145,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="no-primitives">No Primitives!</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/NumberTypes.kt</span>
-
-<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">val</span> <span class="va">n</span> = <span class="dv">1000</span>    <span class="co">// Int</span>
   <span class="kw">val</span> <span class="va">l</span> = 1000L   <span class="co">// Long</span>
   <span class="kw">val</span> <span class="va">d</span> = <span class="fl">1000.0</span>  <span class="co">// Double</span>
@@ -167,9 +158,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="iteration">Iteration</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/IterateThroughString.kt</span>
-
-<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="cf">for</span>(c <span class="kw">in</span> <span class="st">&quot;Kotlin&quot;</span>) {
     print(<span class="st">&quot;$c &quot;</span>)
     <span class="co">// c += 1 // error:</span>
@@ -183,9 +172,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="ranges">Ranges</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary1/IntRange.kt</span>
-
-<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="cf">for</span>(i <span class="kw">in</span> <span class="dv">1</span>..<span class="dv">10</span>)
     print(<span class="st">&quot;$i &quot;</span>)
 }
@@ -196,8 +183,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="named-and-default-arguments">Named and Default Arguments</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// NamedAndDefaultArgs/NamedAndDefaultArgs.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">getColor1</span>(
   <span class="va">red</span>: <span class="dt">Int</span> = 0,
@@ -219,8 +205,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="lists-are-first-class">Lists are First-Class</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary2/ListCollection.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">val</span> <span class="va">l1</span> = listOf(<span class="fl">19.2</span>, <span class="fl">88.3</span>, <span class="fl">22.1</span>)
@@ -235,9 +220,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="classes">Classes</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Summary2/ClassBodies.kt</span>
-
-<span class="kw">class</span> NoBody
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">class</span> NoBody
 
 <span class="kw">class</span> SomeBody {
   <span class="kw">val</span> <span class="va">name</span> = <span class="st">&quot;Janet Doe&quot;</span>
@@ -257,8 +240,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="data-classes">Data Classes</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// DataClasses/Simple.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.*</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.*</span>
 
 <span class="kw">data</span> <span class="kw">class</span> Simple(<span class="kw">val</span> <span class="va">arg1</span>: <span class="dt">String</span>, <span class="kw">var</span> <span class="va">arg2</span>: <span class="dt">Int</span>)
 
@@ -274,8 +256,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="prefer-extension-functions-to-inheritance">Prefer Extension Functions to Inheritance</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Extensions/BookExtensions.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">data</span> <span class="kw">class</span> Book(<span class="kw">val</span> <span class="va">title</span>: <span class="dt">String</span>)
 
@@ -290,8 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="pattern-matching">Pattern Matching</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// WhenExpressions/WhenExpressions.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">matchColor</span>(<span class="va">color</span>: <span class="dt">String</span>) =
   <span class="cf">when</span> (color) {                    <span class="co">// [1]</span>
@@ -310,8 +290,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="local-functions">Local Functions</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// LocalFunctions/LocalExtensions.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">fun</span> <span class="fu">String</span>.<span class="fu">exclaim</span>() = <span class="st">&quot;$this!&quot;</span>
@@ -328,8 +307,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="lambdas-1">Lambdas (1)</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Lambdas/LambdaTypeInference.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">var</span> <span class="va">s</span> = <span class="st">&quot;&quot;</span>
@@ -342,8 +320,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="lambdas-2">Lambdas (2)</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Lambdas/DisplayListWithLambda.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">var</span> <span class="va">s</span> = <span class="st">&quot;&quot;</span>
@@ -354,8 +331,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="lambdas-3">Lambdas (3)</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Lambdas/TwoArgLambda.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   <span class="kw">var</span> <span class="va">s</span> = <span class="st">&quot;&quot;</span>
@@ -368,8 +344,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="functional-operations">Functional Operations</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// ListOperations/DisplayListMap.kt</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   (<span class="dv">1</span>..<span class="dv">4</span>).map {
@@ -382,9 +357,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="operator-overloading">Operator Overloading</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="co">// Operators/Num.kt</span>
-<span class="kw">package</span> <span class="im">operators</span>
-<span class="kw">import</span> <span class="im">atomictest.eq</span>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">import</span> <span class="im">atomictest.eq</span>
 
 <span class="kw">data</span> <span class="kw">class</span> Num(<span class="kw">val</span> <span class="va">n</span>: <span class="dt">Int</span>)
 
@@ -394,6 +367,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">fun</span> main(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
   Num(<span class="dv">4</span>) + Num(<span class="dv">5</span>) eq Num(<span class="dv">9</span>)
   Num(<span class="dv">4</span>).plus(Num(<span class="dv">5</span>)) eq Num(<span class="dv">9</span>)
+}</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="liberation-from-erasure">Liberation From Erasure!</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">inline</span> <span class="kw">fun</span> &lt;<span class="kw">reified</span> <span class="dt">T</span>&gt; <span class="fu">membersOf</span>() = T::<span class="kw">class</span>.members</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="java-collection-invariance">Java Collection Invariance</h3>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import</span><span class="im"> java.util.*;</span>
+
+<span class="kw">class</span> Animal {}
+<span class="kw">class</span> Cat <span class="kw">extends</span> Animal {}
+
+<span class="kw">public</span> <span class="kw">class</span> Invariant {
+  <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {
+    <span class="bu">List</span>&lt;Animal&gt; animals = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;Cat&gt;();
+    <span class="co">// error: incompatible types: ArrayList&lt;Cat&gt;</span>
+    <span class="co">// cannot be converted to List&lt;Animal&gt;</span>
+  }
+}</code></pre></div>
+<ul>
+<li>Because reasons</li>
+<li>... which never quite make sense</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="automatic-covariance">Automatic Covariance!</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">open</span> <span class="kw">class</span> Animal
+<span class="kw">class</span> Cat: <span class="dt">Animal</span>()
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="kw">val</span> <span class="va">cats</span>: List&lt;Cat&gt; = listOf(Cat(), Cat())
+  <span class="kw">val</span> <span class="va">animals</span>: List&lt;Animal&gt; = cats
 }</code></pre></div>
 </section>
 <section class="slide level2">

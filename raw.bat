@@ -1,3 +1,4 @@
+call python substitute.py
 call pandoc -t revealjs -V theme=simple -s -o KotlinOverview.html KotlinOverview.md
 call KotlinOverview.html
 

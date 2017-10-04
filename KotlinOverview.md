@@ -1,7 +1,6 @@
 ---
 author: Bruce Eckel
-title: Resisting Kotlin
-date: October 1, 2017
+title: Kotlin Overview for Java Programmers
 ---
 
 ## From Upcoming _Atomic Kotlin_
@@ -26,8 +25,6 @@ public class Foo {
 
 ### Top-Level Functions
 ```kotlin
-// Summary1/BasicFunctions.kt
-
 fun cube(x: Int): Int {
   return x * x * x
 }
@@ -48,8 +45,6 @@ pop!
 
 ### String templates
 ```kotlin
-// Summary1/StrTemplates.kt
-
 fun main(args: Array<String>) {
   val answer = 42
   println("Found $answer!")                  // [1]
@@ -68,8 +63,6 @@ printing a $1
 
 ### Triple Quotes
 ```kotlin
-// Summary1/ThreeQuotes.kt
-
 fun json(q: String, a: Int) = """{
     "question" : "$q",
     "answer" : $a
@@ -90,8 +83,6 @@ fun main(args: Array<String>) {
 
 ### No Primitives!
 ```kotlin
-// Summary1/NumberTypes.kt
-
 fun main(args: Array<String>) {
   val n = 1000    // Int
   val l = 1000L   // Long
@@ -107,8 +98,6 @@ fun main(args: Array<String>) {
 
 ### Iteration
 ```kotlin
-// Summary1/IterateThroughString.kt
-
 fun main(args: Array<String>) {
   for(c in "Kotlin") {
     print("$c ")
@@ -125,8 +114,6 @@ K o t l i n
 
 ### Ranges
 ```kotlin
-// Summary1/IntRange.kt
-
 fun main(args: Array<String>) {
   for(i in 1..10)
     print("$i ")
@@ -141,7 +128,6 @@ fun main(args: Array<String>) {
 ### Named and Default Arguments
 
 ```kotlin
-// NamedAndDefaultArgs/NamedAndDefaultArgs.kt
 import atomictest.eq
 
 fun getColor1(
@@ -167,7 +153,6 @@ fun main(args: Array<String>) {
 ### Lists are First-Class
 
 ```kotlin
-// Summary2/ListCollection.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -186,8 +171,6 @@ fun main(args: Array<String>) {
 ### Classes
 
 ```kotlin
-// Summary2/ClassBodies.kt
-
 class NoBody
 
 class SomeBody {
@@ -211,7 +194,6 @@ fun main(args: Array<String>) {
 ### Data Classes
 
 ```kotlin
-// DataClasses/Simple.kt
 import atomictest.*
 
 data class Simple(val arg1: String, var arg2: Int)
@@ -231,7 +213,6 @@ Simple(arg1=Hi, arg2=29)
 ### Prefer Extension Functions to Inheritance
 
 ```kotlin
-// Extensions/BookExtensions.kt
 import atomictest.eq
 
 data class Book(val title: String)
@@ -250,7 +231,6 @@ fun main(args: Array<String>) {
 ### Pattern Matching
 
 ```kotlin
-// WhenExpressions/WhenExpressions.kt
 import atomictest.eq
 
 fun matchColor(color: String) =
@@ -273,7 +253,6 @@ fun main(args: Array<String>) {
 ### Local Functions
 
 ```kotlin
-// LocalFunctions/LocalExtensions.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -295,7 +274,6 @@ fun main(args: Array<String>) {
 ### Lambdas (1)
 
 ```kotlin
-// Lambdas/LambdaTypeInference.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -312,7 +290,6 @@ fun main(args: Array<String>) {
 ### Lambdas (2)
 
 ```kotlin
-// Lambdas/DisplayListWithLambda.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -327,7 +304,6 @@ fun main(args: Array<String>) {
 ### Lambdas (3)
 
 ```kotlin
-// Lambdas/TwoArgLambda.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -344,7 +320,6 @@ fun main(args: Array<String>) {
 ### Functional Operations
 
 ```kotlin
-// ListOperations/DisplayListMap.kt
 import atomictest.eq
 
 fun main(args: Array<String>) {
@@ -361,8 +336,6 @@ fun main(args: Array<String>) {
 ### Operator Overloading
 
 ```kotlin
-// Operators/Num.kt
-package operators
 import atomictest.eq
 
 data class Num(val n: Int)
@@ -373,6 +346,50 @@ operator fun Num.plus(rval: Num) =
 fun main(args: Array<String>) {
   Num(4) + Num(5) eq Num(9)
   Num(4).plus(Num(5)) eq Num(9)
+}
+```
+
+---
+
+### Liberation From Erasure!
+
+```kotlin
+inline fun <reified T> membersOf() = T::class.members
+```
+
+---
+
+### Java Collection Invariance
+
+```java
+import java.util.*;
+
+class Animal {}
+class Cat extends Animal {}
+
+public class Invariant {
+  public static void main(String[] args) {
+    List<Animal> animals = new ArrayList<Cat>();
+    // error: incompatible types: ArrayList<Cat>
+    // cannot be converted to List<Animal>
+  }
+}
+```
+
+* Because reasons
+* ... which never quite make sense
+
+---
+
+### Automatic Covariance!
+
+```kotlin
+open class Animal
+class Cat: Animal()
+
+fun main(args: Array<String>) {
+  val cats: List<Cat> = listOf(Cat(), Cat())
+  val animals: List<Animal> = cats
 }
 ```
 
