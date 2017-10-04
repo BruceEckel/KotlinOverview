@@ -131,6 +131,50 @@ public class Foo {
 
 ---
 
+### Liberation From Erasure!
+
+```kotlin
+inline fun <reified T> membersOf() = T::class.members
+```
+
+---
+
+### Java Collection Invariance
+
+```java
+import java.util.*;
+
+class Animal {}
+class Cat extends Animal {}
+
+public class Invariant {
+  public static void main(String[] args) {
+    List<Animal> animals = new ArrayList<Cat>();
+    // error: incompatible types: ArrayList<Cat>
+    // cannot be converted to List<Animal>
+  }
+}
+```
+
+* Because reasons
+* ... which never quite make sense
+
+---
+
+### Automatic Covariance!
+
+```kotlin
+open class Animal
+class Cat: Animal()
+
+fun main(args: Array<String>) {
+  val cats = listOf(Cat(), Cat())
+  val animals: List<Animal> = cats
+}
+```
+
+---
+
 ### Many Other Powerful Features
 * Easy two-way Java interoperability
 * Coroutines (Kotlin 1.1)
