@@ -133,8 +133,6 @@ fun main(args: Array<String>) {
 ### Named and Default Arguments
 
 ```kotlin
-import atomictest.eq
-
 fun getColor(
   red: Int = 0,
   green: Int = 0,
@@ -155,8 +153,6 @@ fun main(args: Array<String>) {
 ### Lists are First-Class
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   val l1 = listOf(19.2, 88.3, 22.1)
   l1 eq listOf(19.2, 88.3, 22.1)
@@ -196,8 +192,6 @@ fun main(args: Array<String>) {
 ### Data Classes
 
 ```kotlin
-import atomictest.*
-
 data class Simple(val arg1: String, var arg2: Int)
 
 fun main(args: Array<String>) {
@@ -215,8 +209,6 @@ Simple(arg1=Hi, arg2=29)
 ### Prefer Extension Functions to Inheritance
 
 ```kotlin
-import atomictest.eq
-
 data class Book(val title: String)
 
 fun Book.categorize(category: String) =
@@ -233,8 +225,6 @@ fun main(args: Array<String>) {
 ### Pattern Matching
 
 ```kotlin
-import atomictest.eq
-
 fun matchColor(color: String) =
   when (color) {                    // [1]
     "red" -> "RED"                  // [2]
@@ -255,8 +245,6 @@ fun main(args: Array<String>) {
 ### Local Functions
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   fun String.exclaim() = "$this!"
   "Hello".exclaim() eq "Hello!"
@@ -276,8 +264,6 @@ fun main(args: Array<String>) {
 ### Lambdas (1)
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   var s = ""
   listOf(1, 2, 3, 4).forEach({
@@ -292,8 +278,6 @@ fun main(args: Array<String>) {
 ### Lambdas (2)
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   var s = ""
   (1..4).forEach { s += "[$it]" }
@@ -306,8 +290,6 @@ fun main(args: Array<String>) {
 ### Lambdas (3)
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   var s = ""
   "Duck".forEachIndexed {
@@ -322,8 +304,6 @@ fun main(args: Array<String>) {
 ### Functional Operations
 
 ```kotlin
-import atomictest.eq
-
 fun main(args: Array<String>) {
   (1..4).map {
     "[$it]"
@@ -338,8 +318,6 @@ fun main(args: Array<String>) {
 ### Operator Overloading
 
 ```kotlin
-import atomictest.eq
-
 data class Num(val n: Int)
 
 operator fun Num.plus(rval: Num) =
@@ -349,14 +327,6 @@ fun main(args: Array<String>) {
   Num(4) + Num(5) eq Num(9)
   Num(4).plus(Num(5)) eq Num(9)
 }
-```
-
----
-
-### Liberation From Erasure!
-
-```kotlin
-inline fun <reified T> membersOf() = T::class.members
 ```
 
 ---
@@ -397,7 +367,15 @@ fun main(args: Array<String>) {
 
 ---
 
+### Liberation From Erasure!
+
+```kotlin
+inline fun <reified T> membersOf() = T::class.members
+```
+
+---
+
 ### Many Other Powerful Features
-* Easy two-way Java interoperability
+* Simplified Generics
 * Coroutines (Kotlin 1.1)
 * (go through book looking for features)

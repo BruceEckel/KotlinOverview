@@ -135,14 +135,6 @@ title: Kotlin Overview for Java Programmers
 
 ---
 
-### Liberation From Erasure!
-
-```kotlin
-inline fun <reified T> membersOf() = T::class.members
-```
-
----
-
 ### Java Collection Invariance
 
 ```java
@@ -179,7 +171,15 @@ fun main(args: Array<String>) {
 
 ---
 
+### Liberation From Erasure!
+
+```kotlin
+inline fun <reified T> membersOf() = T::class.members
+```
+
+---
+
 ### Many Other Powerful Features
-* Easy two-way Java interoperability
+* Simplified Generics
 * Coroutines (Kotlin 1.1)
 * (go through book looking for features)
