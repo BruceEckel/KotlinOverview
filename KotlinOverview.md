@@ -8,22 +8,22 @@ title: Kotlin Overview for Java Programmers
 
 ---
 
-### Ceremony makes you feel productive
-* Everything in a class, a file for every class
-* Plain functions -- who needs them?
-* It's just not the same without
-```java
-public class Foo {
-  public static void main(String[] args) {
-    // ...
-  }
-}
-```
-* How can I know where the end is without semicolons?
+### TLDR: Kotlin Fixes the Java Annoyances
+* Gets rid of almost all remnants of bad Java design
+* Anything the language can do for you
+* But interacts/integrates easily with Java
+
+---
+
+### Kotlin Enables Functional Programming
+* First-class functions that are easy to manipulate
+* Much more useful lambdas, without restrictions
+* Invariance by default
 
 ---
 
 ### Top-Level Functions
+
 ```kotlin
 fun cube(x: Int): Int {
   return x * x * x
@@ -44,6 +44,7 @@ pop!
 ---
 
 ### String templates
+
 ```kotlin
 fun main(args: Array<String>) {
   val answer = 42
@@ -62,6 +63,7 @@ printing a $1
 ---
 
 ### Triple Quotes
+
 ```kotlin
 fun json(q: String, a: Int) = """{
     "question" : "$q",
@@ -82,6 +84,7 @@ fun main(args: Array<String>) {
 ---
 
 ### No Primitives!
+
 ```kotlin
 fun main(args: Array<String>) {
   val n = 1000    // Int
@@ -97,6 +100,7 @@ fun main(args: Array<String>) {
 ---
 
 ### Iteration
+
 ```kotlin
 fun main(args: Array<String>) {
   for(c in "Kotlin") {
@@ -113,6 +117,7 @@ K o t l i n
 ---
 
 ### Ranges
+
 ```kotlin
 fun main(args: Array<String>) {
   for(i in 1..10)
@@ -130,21 +135,18 @@ fun main(args: Array<String>) {
 ```kotlin
 import atomictest.eq
 
-fun getColor1(
+fun getColor(
   red: Int = 0,
   green: Int = 0,
   blue: Int = 0
 ) = "($red, $green, $blue)"
 
 fun main(args: Array<String>) {
-  val darkRed = "(139, 0, 0)"
-  val darkBlue = "(0, 0, 139)"
-  val orange = "(255, 165, 0)"
-  val purple = "(128, 0, 128)"
-  getColor1(139) eq darkRed
-  getColor1(blue = 139) eq darkBlue
-  getColor1(255, 165) eq orange
-  getColor1(red = 128, blue = 128) eq purple
+  getColor(139) eq "(139, 0, 0)"
+  getColor(blue = 139) eq "(0, 0, 139)"
+  getColor(255, 165) eq "(255, 165, 0)"
+  getColor(red = 128, blue = 128) eq
+    "(128, 0, 128)"
 }
 ```
 
