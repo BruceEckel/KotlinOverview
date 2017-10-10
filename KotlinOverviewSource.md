@@ -174,7 +174,8 @@ fun main(args: Array<String>) {
 ### Liberation From Erasure!
 
 ```kotlin
-inline fun <reified T: Any> type(c: T) = c::class.qualifiedName
+inline fun <reified T: Any> type(c: T) =
+  c::class.qualifiedName
 ```
 
 ---

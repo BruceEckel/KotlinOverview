@@ -370,7 +370,8 @@ fun main(args: Array<String>) {
 ### Liberation From Erasure!
 
 ```kotlin
-inline fun <reified T> membersOf() = T::class.members
+inline fun <reified T: Any> type(c: T) =
+  c::class.qualifiedName
 ```
 
 ---

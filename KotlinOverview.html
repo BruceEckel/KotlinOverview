@@ -382,7 +382,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="liberation-from-erasure">Liberation From Erasure!</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">inline</span> <span class="kw">fun</span> &lt;<span class="kw">reified</span> <span class="dt">T</span>&gt; <span class="fu">membersOf</span>() = T::<span class="kw">class</span>.members</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">inline</span> <span class="kw">fun</span> &lt;<span class="kw">reified</span> <span class="dt">T</span>: <span class="dt">Any</span>&gt; <span class="fu">type</span>(<span class="va">c</span>: <span class="dt">T</span>) =
+  c::<span class="kw">class</span>.qualifiedName</code></pre></div>
 </section>
 <section class="slide level2">
 
