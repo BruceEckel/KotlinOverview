@@ -292,6 +292,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <section class="slide level2">
 
 <h3 id="null-safety">Null Safety</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  <span class="kw">val</span> <span class="va">s1</span>: <span class="kw">String</span> = <span class="st">&quot;abc&quot;</span>
+  <span class="kw">val</span> <span class="va">s2</span>: <span class="kw">String</span>? = s1
+
+  s1.length eq <span class="dv">3</span>          <span class="co">// [1]</span>
+  <span class="co">// Doesn&#39;t compile</span>
+  <span class="co">// s2.length            // [2]</span>
+}</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="nullable-types-require-explicit-checks">Nullable Types Require Explicit Checks</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">fun</span> <span class="fu">check</span>(<span class="va">s</span>: <span class="dt">String?</span>, <span class="va">len</span>: <span class="dt">Int?</span>) {
+  <span class="kw">val</span> <span class="va">length1</span> =
+    <span class="cf">if</span>(s != <span class="kw">null</span>) s.length <span class="cf">else</span> <span class="kw">null</span> <span class="co">// [1]</span>
+  <span class="kw">val</span> <span class="va">length2</span> = s?.length            <span class="co">// [2]</span>
+  length1 eq len
+  length2 eq len
+}
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+  check(<span class="st">&quot;abc&quot;</span>, <span class="dv">3</span>)
+  check(<span class="kw">null</span>, <span class="kw">null</span>)
+}</code></pre></div>
+<ul>
+<li>Plus significant additional support</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -392,6 +419,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Simplified Generics</li>
 <li>Coroutines (Kotlin 1.1)</li>
 <li>(go through book looking for features)</li>
+<li>Watch this space: AtomicKotlin.com</li>
 </ul>
 </section>
     </div>

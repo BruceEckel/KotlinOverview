@@ -102,6 +102,15 @@ title: Kotlin Overview for Java Programmers
 
 ### Null Safety
 
+{{Nullable/Dereference.kt}}
+
+---
+
+### Nullable Types Require Explicit Checks
+
+{{SafeCalls/SafeCall.kt}}
+
+* Plus significant additional support
 
 ---
 
@@ -184,3 +193,4 @@ inline fun <reified T: Any> type(c: T) =
 * Simplified Generics
 * Coroutines (Kotlin 1.1)
 * (go through book looking for features)
+* Watch this space: AtomicKotlin.com

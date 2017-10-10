@@ -258,6 +258,37 @@ fun main(args: Array<String>) {
 
 ### Null Safety
 
+```kotlin
+fun main(args: Array<String>) {
+  val s1: String = "abc"
+  val s2: String? = s1
+
+  s1.length eq 3          // [1]
+  // Doesn't compile
+  // s2.length            // [2]
+}
+```
+
+---
+
+### Nullable Types Require Explicit Checks
+
+```kotlin
+fun check(s: String?, len: Int?) {
+  val length1 =
+    if(s != null) s.length else null // [1]
+  val length2 = s?.length            // [2]
+  length1 eq len
+  length2 eq len
+}
+
+fun main(args: Array<String>) {
+  check("abc", 3)
+  check(null, null)
+}
+```
+
+* Plus significant additional support
 
 ---
 
@@ -380,3 +411,4 @@ inline fun <reified T: Any> type(c: T) =
 * Simplified Generics
 * Coroutines (Kotlin 1.1)
 * (go through book looking for features)
+* Watch this space: AtomicKotlin.com
