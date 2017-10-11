@@ -1,10 +1,11 @@
 ---
-author: Bruce Eckel
 title: Kotlin Overview for Java Programmers
+author: Bruce Eckel
 ---
 
-## From Upcoming _Atomic Kotlin_
-*
+## From Upcoming
+
+![](Cover.jpg){ width=40% }
 
 ---
 
@@ -128,6 +129,8 @@ fun main(args: Array<String>) {
 */
 ```
 
+* Plus more range support
+
 ---
 
 ### Named and Default Arguments
@@ -239,6 +242,8 @@ fun main(args: Array<String>) {
   matchColor("blue") eq "BLUE"
 }
 ```
+
+* Far greater complexity possible
 
 ---
 

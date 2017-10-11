@@ -1,10 +1,11 @@
 ---
-author: Bruce Eckel
 title: Kotlin Overview for Java Programmers
+author: Bruce Eckel
 ---
 
-## From Upcoming _Atomic Kotlin_
-*
+## From Upcoming
+
+![](Cover.jpg){ width=40% }
 
 ---
 
@@ -56,6 +57,8 @@ title: Kotlin Overview for Java Programmers
 
 {{Summary1/IntRange.kt}}
 
+* Plus more range support
+
 ---
 
 ### Named and Default Arguments
@@ -92,6 +95,8 @@ title: Kotlin Overview for Java Programmers
 
 {{WhenExpressions/WhenExpressions.kt}}
 
+* Far greater complexity possible
+
 ---
 
 ### Local Functions
@@ -122,7 +127,7 @@ title: Kotlin Overview for Java Programmers
 
 ### Lambdas (2)
 
-{{Lambdas/DisplayListWithLambda.kt}}
+{{Lambdas/FormatListWithLambda.kt}}
 
 ---
 
