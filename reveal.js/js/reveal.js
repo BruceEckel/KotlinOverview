@@ -39,7 +39,7 @@
 
 			// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
-			width: 960,
+			width: 1024,   // Original: width: 960, -- change from Leo
 			height: 700,
 
 			// Factor of the display size that should remain empty around the content
@@ -74,7 +74,7 @@
 			overview: true,
 
 			// Vertical centering of slides
-			center: true,
+			center: false,
 
 			// Enables touch navigation on devices with touch input
 			touch: true,
