@@ -197,5 +197,4 @@ inline fun <reified T: Any> type(c: T) =
 ### Many Other Powerful Features
 * Simplified Generics
 * Coroutines (Kotlin 1.1)
-* (go through book looking for features)
 * Watch this space: AtomicKotlin.com
