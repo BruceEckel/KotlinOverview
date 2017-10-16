@@ -196,5 +196,6 @@ inline fun <reified T: Any> type(c: T) =
 
 ### Many Other Powerful Features
 * Simplified Generics
+* Delegation
 * Coroutines (Kotlin 1.1)
 * Watch this space: AtomicKotlin.com
