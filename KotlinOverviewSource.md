@@ -3,23 +3,30 @@ title: Kotlin Overview for Java Programmers
 author: Bruce Eckel
 ---
 
-## From Upcoming
+## www.OnJava8.com
+
+![](OnJav8Cover.jpg){ width=40% }
+
+---
+
+## Examples From Upcoming
 
 ![](Cover.jpg){ width=40% }
 
 ---
 
-### TLDR: Kotlin Fixes the Java Annoyances
+### TLDR: Fixes the Java Annoyances
 * Gets rid of almost all remnants of bad Java design
 * Anything the language can do for you
 * But interacts/integrates easily with Java
+* Runs on Java 6 JVM, official Android Language
 
 ---
 
-### Kotlin Enables Functional Programming
+### Enables Functional Programming
+* Invariance by default
 * First-class functions that are easy to manipulate
 * Much more useful lambdas, without restrictions
-* Invariance by default
 
 ---
 
@@ -198,4 +205,5 @@ inline fun <reified T: Any> type(c: T) =
 * Simplified Generics
 * Delegation
 * Coroutines (Kotlin 1.1)
+* And Much More
 * Watch this space: AtomicKotlin.com
