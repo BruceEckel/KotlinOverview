@@ -97,9 +97,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h3 id="enables-functional-programming">Enables Functional Programming</h3>
 <ul>
+<li>Invariance by default</li>
 <li>First-class functions that are easy to manipulate</li>
 <li>Much more useful lambdas, without restrictions</li>
-<li>Invariance by default</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -119,6 +119,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">27</span>
 <span class="co">pop!</span>
 <span class="co">*/</span></code></pre></div>
+<ul>
+<li>Multiple things in a file</li>
+<li>Don't have to use classes if you don't need them</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -135,6 +139,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">a</span>
 <span class="co">printing a $1</span>
 <span class="co">*/</span></code></pre></div>
+<ul>
+<li>No constraints on file names</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -192,7 +199,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">1 2 3 4 5 6 7 8 9 10</span>
 <span class="co">*/</span></code></pre></div>
 <ul>
-<li>Plus more range support</li>
+<li>Additional range support</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -224,6 +231,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   l1.max() eq <span class="fl">88.3</span>
   l1.min() eq <span class="fl">19.2</span>
 }</code></pre></div>
+<ul>
+<li>Immutable by default</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -244,6 +254,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">val</span> <span class="va">sb</span> = SomeBody()
   <span class="kw">val</span> <span class="va">eb</span> = EveryBody()
 }</code></pre></div>
+<ul>
+<li>Like Python: <strong><code>new</code></strong> is redundant</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -258,6 +271,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">/* Output:</span>
 <span class="co">Simple(arg1=Hi, arg2=29)</span>
 <span class="co">*/</span></code></pre></div>
+<ul>
+<li>Creates <strong><code>toString()</code></strong>, <strong><code>hashCode()</code></strong>, <strong><code>equals()</code></strong>, <strong><code>compare()</code></strong>, <strong><code>copy()</code></strong>, etc.</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -271,6 +287,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   Book(<span class="st">&quot;Dracula&quot;</span>).categorize(<span class="st">&quot;Vampire&quot;</span>) eq
     <span class="st">&quot;&quot;&quot;title: &quot;Dracula&quot;, category: Vampire&quot;&quot;&quot;</span>
 }</code></pre></div>
+<ul>
+<li>Seems simple but it's surprising what they enable</li>
+<li><strong>Adapter</strong> design pattern</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -311,7 +331,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">val</span> <span class="va">s2</span>: <span class="kw">String</span>? = s1
 
   s1.length eq <span class="dv">3</span>          <span class="co">// [1]</span>
-  <span class="co">// Doesn&#39;t compile</span>
+  <span class="co">// Doesn&#39;t compile:</span>
   <span class="co">// s2.length            // [2]</span>
 }</code></pre></div>
 </section>
@@ -422,16 +442,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section>
 <section class="slide level2">
 
-<h3 id="liberation-from-erasure">Liberation From Erasure!</h3>
-<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">inline</span> <span class="kw">fun</span> &lt;<span class="kw">reified</span> <span class="dt">T</span>: <span class="dt">Any</span>&gt; <span class="fu">type</span>(<span class="va">c</span>: <span class="dt">T</span>) =
-  c::<span class="kw">class</span>.qualifiedName</code></pre></div>
+<h3 id="generics-are-easier-and-more-powerful">Generics are Easier and More Powerful</h3>
+<div class="sourceCode"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><span class="kw">interface</span> Animal
+<span class="kw">data</span> <span class="kw">class</span> Cat(<span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>): <span class="dt">Animal</span>
+<span class="kw">data</span> <span class="kw">class</span> Dog(<span class="kw">val</span> <span class="va">name</span>: <span class="dt">String</span>): <span class="dt">Animal</span>
+
+<span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {
+    <span class="kw">val</span> <span class="va">animals</span> = listOf(
+      Cat(<span class="st">&quot;Bob&quot;</span>), Dog(<span class="st">&quot;Alice&quot;</span>),
+      Cat(<span class="st">&quot;Zomber&quot;</span>), Dog(<span class="st">&quot;Tweet&quot;</span>))
+    println(animals.filterIsInstance&lt;Cat&gt;())
+    println(animals.filterIsInstance&lt;Dog&gt;())
+}
+<span class="co">/* Output:</span>
+<span class="co">[Cat(name=Bob), Cat(name=Zomber)]</span>
+<span class="co">[Dog(name=Alice), Dog(name=Tweet)]</span>
+<span class="co">*/</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="many-other-powerful-features">Many Other Powerful Features</h3>
 <ul>
-<li>Simplified Generics</li>
+<li>Domain-specific language support</li>
 <li>Delegation</li>
+<li>Lazy &amp; Late evaluation support</li>
 <li>Coroutines (Kotlin 1.1)</li>
 <li>And Much More</li>
 <li>Watch this space: AtomicKotlin.com</li>

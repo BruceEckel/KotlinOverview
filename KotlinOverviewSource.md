@@ -34,11 +34,16 @@ author: Bruce Eckel
 
 {{Summary1/BasicFunctions.kt}}
 
+* Multiple things in a file
+* Don't have to use classes if you don't need them
+
 ---
 
 ### String templates
 
 {{Summary1/StrTemplates.kt}}
+
+* No constraints on file names
 
 ---
 
@@ -64,7 +69,7 @@ author: Bruce Eckel
 
 {{Summary1/IntRange.kt}}
 
-* Plus more range support
+* Additional range support
 
 ---
 
@@ -78,11 +83,15 @@ author: Bruce Eckel
 
 {{Summary2/ListCollection.kt}}
 
+* Immutable by default
+
 ---
 
 ### Classes
 
 {{Summary2/ClassBodies.kt}}
+
+* Like Python: **`new`** is redundant
 
 ---
 
@@ -90,11 +99,16 @@ author: Bruce Eckel
 
 {{DataClasses/Simple.kt}}
 
+* Creates **`toString()`**, **`hashCode()`**, **`equals()`**, **`compare()`**, **`copy()`**, etc.
+
 ---
 
 ### Prefer Extension Functions to Inheritance
 
 {{Extensions/BookExtensions.kt}}
+
+* Seems simple but it's surprising what they enable
+* **Adapter** design pattern
 
 ---
 
@@ -148,6 +162,8 @@ author: Bruce Eckel
 
 {{ListOperations/DisplayListMap.kt}}
 
+* Many more operations to produce functional-style chaining
+
 ---
 
 ### Operator Overloading
@@ -192,18 +208,32 @@ fun main(args: Array<String>) {
 
 ---
 
-### Liberation From Erasure!
+### Generics are Easier and More Powerful
 
 ```kotlin
-inline fun <reified T: Any> type(c: T) =
-  c::class.qualifiedName
+interface Animal
+data class Cat(val name: String): Animal
+data class Dog(val name: String): Animal
+
+fun main(args: Array<String>) {
+    val animals = listOf(
+      Cat("Bob"), Dog("Alice"),
+      Cat("Zomber"), Dog("Tweet"))
+    println(animals.filterIsInstance<Cat>())
+    println(animals.filterIsInstance<Dog>())
+}
+/* Output:
+[Cat(name=Bob), Cat(name=Zomber)]
+[Dog(name=Alice), Dog(name=Tweet)]
+*/
 ```
 
 ---
 
 ### Many Other Powerful Features
-* Simplified Generics
+* Domain-specific language (DSL) support
 * Delegation
+* Lazy & Late evaluation
 * Coroutines (Kotlin 1.1)
 * And Much More
 * Watch this space: AtomicKotlin.com

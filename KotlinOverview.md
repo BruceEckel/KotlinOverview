@@ -24,9 +24,9 @@ author: Bruce Eckel
 ---
 
 ### Enables Functional Programming
+* Invariance by default
 * First-class functions that are easy to manipulate
 * Much more useful lambdas, without restrictions
-* Invariance by default
 
 ---
 
@@ -49,6 +49,9 @@ pop!
 */
 ```
 
+* Multiple things in a file
+* Don't have to use classes if you don't need them
+
 ---
 
 ### String templates
@@ -67,6 +70,8 @@ a
 printing a $1
 */
 ```
+
+* No constraints on file names
 
 ---
 
@@ -136,7 +141,7 @@ fun main(args: Array<String>) {
 */
 ```
 
-* Plus more range support
+* Additional range support
 
 ---
 
@@ -174,6 +179,8 @@ fun main(args: Array<String>) {
 }
 ```
 
+* Immutable by default
+
 ---
 
 ### Classes
@@ -197,6 +204,8 @@ fun main(args: Array<String>) {
 }
 ```
 
+* Like Python: **`new`** is redundant
+
 ---
 
 ### Data Classes
@@ -214,6 +223,8 @@ Simple(arg1=Hi, arg2=29)
 */
 ```
 
+* Creates **`toString()`**, **`hashCode()`**, **`equals()`**, **`compare()`**, **`copy()`**, etc.
+
 ---
 
 ### Prefer Extension Functions to Inheritance
@@ -229,6 +240,9 @@ fun main(args: Array<String>) {
     """title: "Dracula", category: Vampire"""
 }
 ```
+
+* Seems simple but it's surprising what they enable
+* **Adapter** design pattern
 
 ---
 
@@ -276,7 +290,7 @@ fun main(args: Array<String>) {
   val s2: String? = s1
 
   s1.length eq 3          // [1]
-  // Doesn't compile
+  // Doesn't compile:
   // s2.length            // [2]
 }
 ```
@@ -410,18 +424,32 @@ fun main(args: Array<String>) {
 
 ---
 
-### Liberation From Erasure!
+### Generics are Easier and More Powerful
 
 ```kotlin
-inline fun <reified T: Any> type(c: T) =
-  c::class.qualifiedName
+interface Animal
+data class Cat(val name: String): Animal
+data class Dog(val name: String): Animal
+
+fun main(args: Array<String>) {
+    val animals = listOf(
+      Cat("Bob"), Dog("Alice"),
+      Cat("Zomber"), Dog("Tweet"))
+    println(animals.filterIsInstance<Cat>())
+    println(animals.filterIsInstance<Dog>())
+}
+/* Output:
+[Cat(name=Bob), Cat(name=Zomber)]
+[Dog(name=Alice), Dog(name=Tweet)]
+*/
 ```
 
 ---
 
 ### Many Other Powerful Features
-* Simplified Generics
+* Domain-specific language support
 * Delegation
+* Lazy & Late evaluation support
 * Coroutines (Kotlin 1.1)
 * And Much More
 * Watch this space: AtomicKotlin.com
