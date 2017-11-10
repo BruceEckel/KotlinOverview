@@ -370,6 +370,8 @@ fun main(args: Array<String>) {
 }
 ```
 
+* Many more operations to produce functional-style chaining
+
 ---
 
 ### Operator Overloading
@@ -447,9 +449,9 @@ fun main(args: Array<String>) {
 ---
 
 ### Many Other Powerful Features
-* Domain-specific language support
+* Domain-specific language (DSL) support
 * Delegation
-* Lazy & Late evaluation support
+* Lazy & Late evaluation
 * Coroutines (Kotlin 1.1)
 * And Much More
 * Watch this space: AtomicKotlin.com
