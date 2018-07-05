@@ -246,6 +246,27 @@ fun main(args: Array<String>) {
 
 ---
 
+### Sealed Classes
+
+```kotlin
+
+// in file events.kt:
+sealed class Event
+class OpenEvent : Event()
+class CloseEvent : Event()
+
+// in file use-events.kt
+val openEv = OpenEvent()
+val closeEv = CloseEvent()
+val event = Event() // Illegal, sealed class is a kind of abstract class.
+
+class ExitEvent : Event() // Illegal, sealed class is a kind of abstract class and only visible in the file where it is defined, like: events.kt.
+
+```
+
+* If the ```Event``` class is an ```abstract class```, the ```ExitEvent``` is legal. That is different between the ```sealed``` and ```abstract```.
+---
+
 ### Pattern Matching
 
 ```kotlin
