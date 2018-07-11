@@ -318,6 +318,19 @@ fun main(args: Array<String>) {
 
 ---
 
+### Nullable Types check with "?" and Lambdas
+
+```kotlin
+var name: String? = "Mary"
+name?.let {
+   print(it) // Mary
+} ?: kotlin.run {
+   // Null-handler
+}
+```
+
+---
+
 ### Lambdas (1)
 
 ```kotlin
